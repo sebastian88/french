@@ -14,28 +14,13 @@
 </head>
 <body>
     <div class="container">
-        <!-- <div class="phrase">
-            <p class="english_question">What is your name?</p>
-            
-            <p class="question">Comment tu t’appelles</p>
-            <button class="speak-button" data-text="question">Speak Question</button>
-            <button class="toggle-visability" data-element="question">Show Question</button>
-
-            <p class="answer-seb">Je m’appelle Sébastian</p>
-            <button class="speak-button" data-text="answer-seb">Speak Seb Answer</button>
-            <button class="toggle-visability" data-element="answer-seb">Show Seb Answer</button>
-            
-            <p class="answer-frances">Je m’appelle Frances</p>
-            <button class="speak-button" data-text="answer-frances">Speak Frances Answer</button>
-            <button class="toggle-visability" data-element="answer-frances">Show Frances Answer</button>
-        </div> -->
     </div>
     <script>
 
         function displayPhrases() {
             for(phrase of phrases()) {
                 let container = document.getElementsByClassName("container")[0]
-                container.innerHTML = template()
+                container.innerHTML = container.innerHTML + template()
                     .replace("[[english_question]]", phrase.english_question)
                     .replace("[[question]]", phrase.question)
                     .replace("[[answer_seb]]", phrase.answer_seb)
@@ -116,7 +101,7 @@
 
         function template() {
             return  `<div class="phrase">
-                <p class="english_question">[[english_question]]</p>
+                <h1 class="english_question">[[english_question]]</h1>
                 
                 <p class="question">[[question]]</p>
                 <button class="speak-button" data-text="question">Speak Question</button>
