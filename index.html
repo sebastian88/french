@@ -1,0 +1,25 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <p>What is your name?</p>
+    <p class="question">Comment tu t’appelles</p>
+    <button>Speak Question</button>
+    <button>Show Question</button>
+    <p class="answer">Je m’appelle Sébastian</p>
+    <button class="speak-answer-button">Speak Answer</button>
+    <button>Show Answer</button>
+
+    <script>
+
+        document.getElementsByClassName("speak-answer-button")[0].addEventListener("click", myFunction);
+
+        function myFunction() {
+            let utterance = new SpeechSynthesisUtterance('Comment tu t’appelles')
+            utterance.lang = 'fr-FR'
+            speechSynthesis.speak(utterance)
+            //speechSynthesis.speak(new SpeechSynthesisUtterance('Hello my lovely sebby.you are wonderful.'))
+        }
+    </script>
+</body>
