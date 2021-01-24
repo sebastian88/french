@@ -16,6 +16,7 @@
         document.getElementsByClassName("speak-answer-button")[0].addEventListener("click", myFunction);
 
         function myFunction() {
+            alert("hi")
             let utterance = new SpeechSynthesisUtterance('What is your name')
             //utterance.lang = 'fr-FR'
             speechSynthesis.speak(utterance)
