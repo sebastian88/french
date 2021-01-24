@@ -12,11 +12,20 @@
             box-sizing:border-box;
             width: 49%;
             height: 30px;
-            background: #5eba7d;
+            background: yellow;
             border: none;
         }
         .toggle-visability {
             background-color: #0095ff;
+        }
+
+        .done {
+            box-sizing:border-box;
+            width: 99%;
+            height: 30px;
+            background: #5eba7d;
+            border: none;
+            margin: 70px 0;
         }
     </style>
 
@@ -43,9 +52,18 @@
                 speakButton.addEventListener("click", speakAnswer);
             }
 
-            for(let speakButton of document.getElementsByClassName("toggle-visability")) {
-                speakButton.addEventListener("click", toggleVisability);
+            for(let visibilityButton of document.getElementsByClassName("toggle-visability")) {
+                visibilityButton.addEventListener("click", toggleVisability);
             }
+
+            for(let doneButton of document.getElementsByClassName("done")) {
+                doneButton.addEventListener("click", hidePhrase);
+            }
+        }
+
+        function hidePhrase(event) {
+            const parent = event.target.parentElement
+            parent.style.display = "none"
         }
 
         function toggleVisability(event) {
@@ -124,6 +142,8 @@
                 <p class="answer-frances">[[answer_frances]]</p>
                 <button class="speak-button" data-text="answer-frances">Speak Frances Answer</button>
                 <button class="toggle-visability" data-element="answer-frances">Show Frances Answer</button>
+                
+                <button class="done" >Done</button>
             </div>`
         }
         
