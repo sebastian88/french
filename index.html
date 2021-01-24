@@ -1,26 +1,138 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <style>
+        .question {
+            visibility: hidden;
+        }
+        .answer-seb, .answer-frances {
+            visibility: hidden;
+        }
+    </style>
+
+
 </head>
 <body>
-    <p>What is your name?</p>
-    <p class="question">Comment tu t’appelles</p>
-    <button>Speak Question</button>
-    <button>Show Question</button>
-    <p class="answer">Je m’appelle Sébastian</p>
-    <button class="speak-answer-button">Speak Answer</button>
-    <button>Show Answer</button>
+    <div class="container">
+        <!-- <div class="phrase">
+            <p class="english_question">What is your name?</p>
+            
+            <p class="question">Comment tu t’appelles</p>
+            <button class="speak-button" data-text="question">Speak Question</button>
+            <button class="toggle-visability" data-element="question">Show Question</button>
 
+            <p class="answer-seb">Je m’appelle Sébastian</p>
+            <button class="speak-button" data-text="answer-seb">Speak Seb Answer</button>
+            <button class="toggle-visability" data-element="answer-seb">Show Seb Answer</button>
+            
+            <p class="answer-frances">Je m’appelle Frances</p>
+            <button class="speak-button" data-text="answer-frances">Speak Frances Answer</button>
+            <button class="toggle-visability" data-element="answer-frances">Show Frances Answer</button>
+        </div> -->
+    </div>
     <script>
 
-        document.getElementsByClassName("speak-answer-button")[0].addEventListener("click", myFunction);
+        function displayPhrases() {
+            for(phrase of phrases()) {
+                let container = document.getElementsByClassName("container")[0]
+                container.innerHTML = template()
+                    .replace("[[english_question]]", phrase.english_question)
+                    .replace("[[question]]", phrase.question)
+                    .replace("[[answer_seb]]", phrase.answer_seb)
+                    .replace("[[answer_frances]]", phrase.answer_frances)
+            }
+        }
+        
+        function attachEvents() {
+            for(let speakButton of document.getElementsByClassName("speak-button")) {
+                speakButton.addEventListener("click", speakAnswer);
+            }
 
-        function myFunction() {
-            alert("hi")
-            let utterance = new SpeechSynthesisUtterance('What is your name')
+            for(let speakButton of document.getElementsByClassName("toggle-visability")) {
+                speakButton.addEventListener("click", toggleVisability);
+            }
+        }
+
+        function toggleVisability(event) {
+            const element = event.target.getAttribute("data-element");
+            const parent = event.target.parentElement
+            let text = parent.getElementsByClassName(element)[0]
+
+            text.style.visibility = text.style.visibility == "visible" ? "hidden" : "visible";
+        }
+
+        function speakAnswer(event) {
+            speak(getText(event))
+        }
+
+        function getText(event) {
+            const element = event.target.getAttribute("data-text");
+            const parent = event.target.parentElement
+
+            return parent.getElementsByClassName(element)[0].innerHTML
+
+        }
+
+        function speak(text) {
+            let utterance = new SpeechSynthesisUtterance(text)
             utterance.lang = 'fr-FR'
             speechSynthesis.speak(utterance)
-            //speechSynthesis.speak(new SpeechSynthesisUtterance('Hello my lovely sebby.you are wonderful.'))
         }
+
+        function phrases() {
+            return [
+                {
+                    "english_question":"What is your name?",
+                    "question": "Comment tu t’appelles?",
+                    "answer_seb": "Je m’appelle Sébastian",
+                    "answer_frances": "Je m’appelle Frances",
+                },
+                {
+                    "english_question":"When do you live?",
+                    "question": "Où habites-tu?",
+                    "answer_seb": "J’habite à Bristol, en Angleterre.",
+                    "answer_frances": "J’habite à Bristol, en Angleterre.",
+                },
+                {
+                    "english_question":"What is your profession?",
+                    "question": "Quel est ton métier?",
+                    "answer_seb": "Je suis ingénier informatique.",
+                    "answer_frances": "je travaille dans un hôpital",
+                },
+                {
+                    "english_question":"How old are you?",
+                    "question": "Quel âge as-tu?",
+                    "answer_seb": "J'ai trente-deux ans",
+                    "answer_frances": "J'ai trente et un ans",
+                },
+                {
+                    "english_question":"What is your name?",
+                    "question": "Comment tu t’appelles?",
+                    "answer_seb": "Je m’appelle Sébastian",
+                    "answer_frances": "Je m’appelle Frances",
+                }
+            ]
+        }
+
+        function template() {
+            return  `<div class="phrase">
+                <p class="english_question">[[english_question]]</p>
+                
+                <p class="question">[[question]]</p>
+                <button class="speak-button" data-text="question">Speak Question</button>
+                <button class="toggle-visability" data-element="question">Show Question</button>
+
+                <p class="answer-seb">[[answer_seb]]</p>
+                <button class="speak-button" data-text="answer-seb">Speak Seb Answer</button>
+                <button class="toggle-visability" data-element="answer-seb">Show Seb Answer</button>
+                
+                <p class="answer-frances">[[answer_frances]]</p>
+                <button class="speak-button" data-text="answer-frances">Speak Frances Answer</button>
+                <button class="toggle-visability" data-element="answer-frances">Show Frances Answer</button>
+            </div>`
+        }
+        
+        displayPhrases()
+        attachEvents()
     </script>
 </body>
