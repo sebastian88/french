@@ -3,7 +3,7 @@
    <link rel="icon" type="image/png" href="france16.png" sizes="16x16" />
    <link rel="icon" type="image/png" href="france32.png" sizes="32x32" />
    <link rel="icon" type="image/png" href="france96.png" sizes="96x96" />
-    <title>French</title>
+    <title>Learn French</title>
     <style>
         .container {
             max-width: 600px;
@@ -98,6 +98,7 @@
         function speak(text) {
             let utterance = new SpeechSynthesisUtterance(text)
             utterance.lang = 'fr-FR'
+            utterance.voice = voicesList.find((voice) => voice.lang === 'fr-FR')
             speechSynthesis.speak(utterance)
         }
 
