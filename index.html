@@ -94,7 +94,7 @@
             return parent.getElementsByClassName(element)[0].innerHTML
 
         }
-
+        // https://stackoverflow.com/questions/51904607/ios-safari-speechsynthesisutterance-can-not-set-language
         function speak(text) {
             let utterance = new SpeechSynthesisUtterance(text)
             utterance.lang = 'fr-FR'
