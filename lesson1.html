@@ -1,0 +1,52 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="france16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="france32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="france96.png" sizes="96x96" />
+    <title>Learn French</title>
+    <link rel="stylesheet" href="main.css">
+
+
+</head>
+<body>
+    <div class="container">
+    </div>
+    <script src="main.js"></script>
+    <script>
+        function phrases() {
+            return [
+                {
+                    "english_question":"What is your name?",
+                    "question": "Comment tu t’appelles?",
+                    "answer_seb": "Je m’appelle Sébastian",
+                    "answer_frances": "Je m’appelle Frances",
+                },
+                {
+                    "english_question":"When do you live?",
+                    "question": "Où habites-tu?",
+                    "answer_seb": "J’habite à Bristol, en Angleterre.",
+                    "answer_frances": "Je viens de Belfast, en Irlande du Nord.",
+                },
+                {
+                    "english_question":"What is your profession?",
+                    "question": "Quel est ton métier?",
+                    "answer_seb": "Je suis ingénier informatique.",
+                    "answer_frances": "je travaille dans un hôpital",
+                },
+                {
+                    "english_question":"How old are you?",
+                    "question": "Quel âge as-tu?",
+                    "answer_seb": "J'ai trente-deux ans",
+                    "answer_frances": "J'ai trente et un ans",
+                },
+                {
+                    "english_question":"Where are you from?",
+                    "question": "D’où es-tu?",
+                    "answer_seb": "Je suis de Dorset, en Angleterre",
+                    "answer_frances": "Je viens de Belfast, en Irlande du Nord.",
+                }
+            ]
+        }
+        displayPhrases(phrases())
+    </script>
+</body>
