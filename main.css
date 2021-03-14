@@ -15,7 +15,7 @@ h1 {
 .answer-seb, .answer-frances {
     visibility: hidden;
 }
-.speak-button, .toggle-visability {
+.speak-button, .toggle-visability, .correct, .incorrect, .lesson button {
     box-sizing:border-box;
     width: 49%;
     height: 30px;
@@ -27,12 +27,27 @@ h1 {
     color:white;
 }
 
-.done {
-    box-sizing:border-box;
-    width: 99%;
-    height: 30px;
-    background: #ee2436;
-    border: none;
+.correct {
     margin: 30px 0;
+    background-color: #109246;
     color:white;
+}
+.incorrect {
+    margin: 30px 0;
+    background-color: #ee2436;
+    color:white;
+}
+
+.lesson div a button {
+    background-color: #ee2436;
+    color:white;
+}
+
+.lesson div a:first-child button {
+    background-color: #001e96;
+    color:white;
+}
+
+.lesson{
+    margin: 0 0 30px 0;
 }

@@ -1,25 +1,73 @@
 
 function displayPhrases(phrases) {
-    let container = document.getElementsByClassName("container")[0]
-    for(phrase of phrases) {
-        if(phrase.answer_seb) {
-            container.innerHTML = container.innerHTML + bigTemplate()
-                .replace("[[english_question]]", phrase.english_question)
-                .replace("[[question]]", phrase.question)
-                .replace("[[answer_seb]]", phrase.answer_seb)
-                .replace("[[answer_frances]]", phrase.answer_frances)
-        }
-        else if(phrase.french) {
-            container.innerHTML = container.innerHTML + smallTemplate()
-                .replace("[[english]]", phrase.english)
-                .replace("[[french]]", phrase.french)
-        }
-        else {
-            container.innerHTML = container.innerHTML + titleTemplate()
-                .replace("[[title]]", phrase.title)
-        }
+    window.phrases = phrases
+    window.container = document.getElementsByClassName("container")[0]
+    window.currentScore = 0
+    window.total = window.phrases.length
+    if(showRandom()) {
+        showRandomQuestion();
+    }
+    else {
+        drawAllQuestions()
     }
     attachEvents()
+}
+
+function showRandomQuestion() {
+    var randomPhraseIndex = Math.floor((Math.random() * window.phrases.length));
+    drawQuestion(window.phrases[randomPhraseIndex]);
+    window.phrases.splice(randomPhraseIndex, 1);
+    window.container.innerHTML += buttonsTemplate()
+
+    document.getElementsByClassName("incorrect")[0].addEventListener("click", nextRandomQuestion)
+    document.getElementsByClassName("correct")[0].addEventListener("click", score)
+
+}
+
+function score() {
+    window.currentScore += 1
+    nextRandomQuestion()
+}
+
+function nextRandomQuestion() {
+    if(window.phrases.length == 0){
+        window.container.innerHTML = `<h2 class="english_question">Score ` + window.currentScore + `/` + window.total + `</h2>`
+    }
+    else {
+        window.container.innerHTML = ""
+        showRandomQuestion()
+    }
+}
+
+function showRandom() {
+    const urlParams = new URLSearchParams(window.location.search)
+    const myParam = urlParams.get('myParam')
+    return urlParams.has('r')
+}
+
+function drawAllQuestions() {
+    for(phrase of window.phrases) {
+        drawQuestion(phrase)
+    }
+}
+
+function drawQuestion(phrase) {
+    if(phrase.answer_seb) {
+        window.container.innerHTML = window.container.innerHTML + bigTemplate()
+            .replace("[[english_question]]", phrase.english_question)
+            .replace("[[question]]", phrase.question)
+            .replace("[[answer_seb]]", phrase.answer_seb)
+            .replace("[[answer_frances]]", phrase.answer_frances)
+    }
+    else if(phrase.french) {
+        window.container.innerHTML = window.container.innerHTML + smallTemplate()
+            .replace("[[english]]", phrase.english)
+            .replace("[[french]]", phrase.french)
+    }
+    else {
+        window.container.innerHTML = window.container.innerHTML + titleTemplate()
+            .replace("[[title]]", phrase.title)
+    }
 }
 
 function attachEvents() {
@@ -30,15 +78,6 @@ function attachEvents() {
     for(let visibilityButton of document.getElementsByClassName("toggle-visability")) {
         visibilityButton.addEventListener("click", toggleVisability);
     }
-
-    for(let doneButton of document.getElementsByClassName("done")) {
-        doneButton.addEventListener("click", hidePhrase);
-    }
-}
-
-function hidePhrase(event) {
-    const parent = event.target.parentElement
-    parent.style.display = "none"
 }
 
 function toggleVisability(event) {
@@ -85,8 +124,6 @@ function bigTemplate() {
         <p class="answer-frances">[[answer_frances]]</p>
         <button class="speak-button" data-text="answer-frances">Speak Frances Answer</button>
         <button class="toggle-visability" data-element="answer-frances">Show Frances Answer</button>
-        
-        <button class="done" >Done</button>
     </div>`
 }
 
@@ -97,11 +134,15 @@ function smallTemplate() {
         <p class="question">[[french]]</p>
         <button class="speak-button" data-text="question">Speak French</button>
         <button class="toggle-visability" data-element="question">Show French</button>
-        
-        <button class="done" >Done</button>
     </div>`
 }
 
 function titleTemplate() {
     return  `<h1>[[title]]</h1>`
+}
+
+function buttonsTemplate() {
+    return  `
+    <button class="incorrect">Incorrect</button>
+    <button class="correct">Correct</button>`
 }
