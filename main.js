@@ -36,6 +36,7 @@ function nextRandomQuestion() {
     else {
         window.container.innerHTML = ""
         showRandomQuestion()
+        attachEvents()
     }
 }
 
