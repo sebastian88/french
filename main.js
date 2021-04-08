@@ -3,8 +3,10 @@ function displayPhrases(phrases) {
     window.phrases = phrases
     window.container = document.getElementsByClassName("container")[0]
     window.currentScore = 0
-    window.total = window.phrases.length
     if(showRandom()) {
+        window.phrases = window.phrases.sort(sortRandom)
+        window.phrases = window.phrases.slice(0, 20)
+        window.total = window.phrases.length
         showRandomQuestion();
     }
     else {
@@ -13,10 +15,13 @@ function displayPhrases(phrases) {
     attachEvents()
 }
 
+function sortRandom(a, b) {  
+    return 0.5 - Math.random();
+}  
+
 function showRandomQuestion() {
-    var randomPhraseIndex = Math.floor((Math.random() * window.phrases.length));
-    drawQuestion(window.phrases[randomPhraseIndex]);
-    window.phrases.splice(randomPhraseIndex, 1);
+    drawQuestion(window.phrases[0]);
+    window.phrases.splice(0, 1);
     window.container.innerHTML += buttonsTemplate()
 
     document.getElementsByClassName("incorrect")[0].addEventListener("click", nextRandomQuestion)
