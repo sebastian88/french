@@ -3,6 +3,7 @@ function displayPhrases(phrases) {
     window.phrases = phrases
     window.container = document.getElementsByClassName("container")[0]
     window.currentScore = 0
+    window.currentQuestion = 0
     if(showRandom()) {
         window.phrases = window.phrases.sort(sortRandom)
         window.phrases = window.phrases.slice(0, 20)
@@ -20,9 +21,11 @@ function sortRandom(a, b) {
 }  
 
 function showRandomQuestion() {
-    drawQuestion(window.phrases[0]);
-    window.phrases.splice(0, 1);
+    window.currentQuestion++
+    drawQuestion(window.phrases[0])
+    window.phrases.splice(0, 1)
     window.container.innerHTML += buttonsTemplate()
+    window.container.innerHTML += drawTotals(window.currentQuestion, 20)
 
     document.getElementsByClassName("incorrect")[0].addEventListener("click", nextRandomQuestion)
     document.getElementsByClassName("correct")[0].addEventListener("click", score)
@@ -151,4 +154,15 @@ function buttonsTemplate() {
     return  `
     <button class="incorrect">Incorrect</button>
     <button class="correct">Correct</button>`
+}
+
+function drawTotals(question, total) {
+    return totalsTemplate()
+        .replace("[[question]]", question)
+        .replace("[[total]]", total)
+}
+
+function totalsTemplate() {
+    return  `
+    <div>[[question]]/[[total]]</div>`
 }
