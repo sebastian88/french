@@ -25,7 +25,7 @@ function showRandomQuestion() {
     drawQuestion(window.phrases[0])
     window.phrases.splice(0, 1)
     window.container.innerHTML += buttonsTemplate()
-    window.container.innerHTML += drawTotals(window.currentQuestion, 20)
+    window.container.innerHTML += drawTotals(window.currentQuestion, window.total)
 
     document.getElementsByClassName("incorrect")[0].addEventListener("click", nextRandomQuestion)
     document.getElementsByClassName("correct")[0].addEventListener("click", score)
