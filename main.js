@@ -6,7 +6,7 @@ function displayPhrases(phrases) {
     window.currentQuestion = 0
     if(showRandom()) {
         window.phrases = window.phrases.sort(sortRandom)
-        window.phrases = window.phrases.slice(0, 20)
+        window.phrases = window.phrases.slice(0, numberRandom())
         window.total = window.phrases.length
         showRandomQuestion();
     }
@@ -50,8 +50,12 @@ function nextRandomQuestion() {
 
 function showRandom() {
     const urlParams = new URLSearchParams(window.location.search)
-    const myParam = urlParams.get('myParam')
     return urlParams.has('r')
+}
+
+function numberRandom() {
+    const urlParams = new URLSearchParams(window.location.search)
+    return urlParams.get('r')
 }
 
 function drawAllQuestions() {

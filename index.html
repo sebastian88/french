@@ -12,112 +12,49 @@
 <body>
     <div class="container">
         <h1>Learning French with Frances and Seb</h1>
-        <div class="lesson">
-            <h2>Lesson1: About you</h2>
-            <div>
-                <a href="lesson1.html"><button>All</button></a>
-                <a href="lesson1.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson2: How are you?</h2>
-            <div>
-                <a href="lesson2.html"><button>All</button></a>
-                <a href="lesson2.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson3: I am, you are</h2>
-            <div>
-                <a href="lesson3.html"><button>All</button></a>
-                <a href="lesson3.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson4: Family</h2>
-            <div>
-                <a href="lesson4.html"><button>All</button></a>
-                <a href="lesson4.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson5: Numbers</h2>
-            <div>
-                <a href="lesson5.html"><button>All</button></a>
-                <a href="lesson5.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson6: Contact details</h2>
-            <div>
-                <a href="lesson6.html"><button>All</button></a>
-                <a href="lesson6.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson7: Alphabet</h2>
-            <div>
-                <a href="lesson7.html"><button>All</button></a>
-                <a href="lesson7.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson8: Like</h2>
-            <div>
-                <a href="lesson8.html"><button>All</button></a>
-                <a href="lesson8.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson9: Possession</h2>
-            <div>
-                <a href="lesson9.html"><button>All</button></a>
-                <a href="lesson9.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson10: We Like</h2>
-            <div>
-                <a href="lesson10.html"><button>All</button></a>
-                <a href="lesson10.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson11: I am, you are</h2>
-            <div>
-                <a href="lesson11.html"><button>All</button></a>
-                <a href="lesson11.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson12: I have, you have</h2>
-            <div>
-                <a href="lesson12.html"><button>All</button></a>
-                <a href="lesson12.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson13: Lesson Questions</h2>
-            <div>
-                <a href="lesson13.html"><button>All</button></a>
-                <a href="lesson13.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson14: There are, there is (Il y a)</h2>
-            <div>
-                <a href="lesson14.html"><button>All</button></a>
-                <a href="lesson14.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
-        <div class="lesson">
-            <h2>Lesson15: Savoir to know how to do something</h2>
-            <div>
-                <a href="lesson15.html"><button>All</button></a>
-                <a href="lesson15.html?r=1"><button>Quiz</button></a>
-            </div>
-        </div>
         
     </div>
+    <script>
+        function lessons() {
+            return [
+                "Lesson1: About you",
+                "Lesson2: How are you?",
+                "Lesson3: I am, you are",
+                "Lesson4: Family",
+                "Lesson5: Numbers",
+                "Lesson6: Contact details",
+                "Lesson7: Alphabet",
+                "Lesson8: Like",
+                "Lesson9: Possession",
+                "Lesson10: We Like",
+                "Lesson11: I am, you are",
+                "Lesson12: I have, you have",
+                "Lesson13: Lesson Questions",
+                "Lesson14: There are, there is (Il y a)",
+                "Lesson15: Savoir to know how to do something",
+                "Lesson15: I like activities",
+            ]
+        }
+        function lessonTemplate() {
+            return `
+        <div class="lesson">
+            <h2>[[title]]</h2>
+            <div>
+                <a href="lesson[[number]].html"><button>All</button></a>
+                <a href="lesson[[number]].html?r=[[questions]]"><button>Quiz</button></a>
+            </div>
+        </div>`
+        }
+        container = document.getElementsByClassName("container")[0]
+        i = 1
+        for(lesson of lessons()) {
+            container.innerHTML = container.innerHTML + lessonTemplate()
+            .replaceAll("[[title]]", lesson)
+            .replaceAll("[[number]]", i)
+            .replaceAll("[[questions]]", 10)
+            i++
+        }
+        
+    </script>
 
 </body>
