@@ -1,6 +1,6 @@
 
 function displayPhrases(phrases) {
-    window.phrases = phrases
+    window.phrases = getPhrases(phrases)
     window.container = document.getElementsByClassName("container")[0]
     window.currentScore = 0
     window.currentQuestion = 0
@@ -14,6 +14,42 @@ function displayPhrases(phrases) {
         drawAllQuestions()
     }
     attachEvents()
+}
+
+function getPhrases(phrases) {
+    if(phrases.sections){
+        combinedSections = getSectionsPhrases([[]], phrases.sections)
+        return makeStrings(combinedSections)
+    }
+    else
+        return phrases
+}
+
+function makeStrings(combinedSections) {
+    phrases = []
+    for(combinedSection of combinedSections) {
+        phrases.push({
+            "english": combinedSection.map(item => item.english).join(" "),
+            "french": combinedSection.map(item => item.french).join(" ")
+        })
+    }
+    return phrases
+}
+
+function getSectionsPhrases(flattened, remaining) {
+    if(!remaining[0])
+        return flattened
+
+    newflattened = []
+    for(ele of flattened) {
+        for(section of remaining[0]) {
+            newele = [...ele]
+            newele.push(section)
+            newflattened.push(newele)
+        }
+    }
+    remaining.shift()
+    return getSectionsPhrases(newflattened, remaining)
 }
 
 function sortRandom(a, b) {  
