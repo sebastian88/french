@@ -43,9 +43,7 @@ function getSectionsPhrases(flattened, remaining) {
     newflattened = []
     for(ele of flattened) {
         for(section of remaining[0]) {
-            newele = [...ele]
-            newele.push(section)
-            newflattened.push(newele)
+            newflattened.push(ele.concat([section]))
         }
     }
     remaining.shift()
