@@ -6,11 +6,16 @@ h1 {
     background-color: green;
 }
 .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
+}
+.english_question{
+    
+    font-size: 50px;
 }
 .question {
     visibility: hidden;
+    font-size: 50px;
 }
 .answer-seb, .answer-frances {
     visibility: hidden;
@@ -18,9 +23,10 @@ h1 {
 .speak-button, .toggle-visability, .correct, .incorrect, .lesson button {
     box-sizing:border-box;
     width: 49%;
-    height: 30px;
+    height: 200px;
     background: white;
     border: 1px #001e96 solid;
+    font-size: 50px;
 }
 .toggle-visability {
     background-color: #001e96;

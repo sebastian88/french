@@ -1,0 +1,66 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="france16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="france32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="france96.png" sizes="96x96" />
+    <title>Learn French | Lesson 24</title>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+
+
+</head>
+<body>
+    <div class="container">
+    </div>
+    <script src="main.js"></script>
+    <script>
+        function phrases() {
+            return [
+                {"english":"Do you speak English", "french": "Parlez-vous anglais?"},
+                {"english":"Whats is your name?", "french": "Comment tu t’appelles?"},
+                {"english":"How are you?", "french": "Comment allez-vous?"},
+                {"english":"How are you? You good?", "french": "Ça va? En forme?"},
+                {"english":"I speak a little French", "french": "Je parle un peu français."},
+                {"english":"Where is the hotel", "french": "Où est l’hôtel?"},
+                {"english":"It’s beautiful weather today", "french": "Il fait beau aujourd’hui"},
+                {"english":"Its raining", "french": "Il pleut"},
+                {"english":"Table for 6 with 2 children and a baby", "french": "Table pour 6 avec 2 enfants et un bébé"},
+                {"english":"Can you help me?", "french": "Pouvez-vous m’aider"},
+                {"english":"How much do I owe you?", "french": "Je vous dois combien?"},
+                {"english":"I dont understand", "french": "Je ne comprends pas."},
+                {"english":"Can I have this, please?", "french": "Puis-je avoir ceci, s’il vous plaît?"},
+                {"english":"This one", "french": "Celui-là"},
+                {"english":"Please", "french": "S'il vous plaît"},
+                {"english":"It’s hot", "french": "Il fait chaud"},
+                {"english":"It’s cold", "french": "Il fait froid"},
+                {"english":"Could you take my photo, please?", "french": "Est-ce que vous pourriez prendre ma photo, s’il vous plaît?"},
+                {"english":"It’s sunny", "french": "Il fait soleil"},
+                {"english":"It’s windy", "french": "Il fait venteux"},
+                {"english":"", "french": ""}
+            ]
+        }
+        displayPhrases(phrases())
+    </script>
+
+    <script>
+
+        // The wake lock sentinel.
+        let wakeLock = null;
+
+        // Function that attempts to request a screen wake lock.
+        const requestWakeLock = async () => {
+        try {
+            wakeLock = await navigator.wakeLock.request();
+            wakeLock.addEventListener('release', () => {
+            console.log('Screen Wake Lock released:', wakeLock.released);
+            });
+            console.log('Screen Wake Lock released:', wakeLock.released);
+        } catch (err) {
+            console.error(`${err.name}, ${err.message}`);
+        }
+        };
+
+        // Request a screen wake lock…
+        requestWakeLock();
+    </script>
+</body>
