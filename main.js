@@ -1,4 +1,16 @@
 
+
+const clickEvents = ["click", "touchstart"]
+
+function setup() {
+    addTouchClickEvent(document.getElementsByClassName("restart-button")[0], clickReload)
+}
+
+function clickReload() {
+    location.reload();
+    return false;
+}
+
 function displayPhrases(phrases) {
     window.phrases = getPhrases(phrases)
     window.container = document.getElementsByClassName("container")[0]
@@ -61,8 +73,8 @@ function showRandomQuestion() {
     window.container.innerHTML += buttonsTemplate()
     window.container.innerHTML += drawTotals(window.currentQuestion, window.total)
 
-    document.getElementsByClassName("incorrect")[0].addEventListener("click", nextRandomQuestion)
-    document.getElementsByClassName("correct")[0].addEventListener("click", score)
+    addTouchClickEvent(document.getElementsByClassName("incorrect")[0], nextRandomQuestion)
+    addTouchClickEvent(document.getElementsByClassName("correct")[0], score)
 
 }
 
@@ -119,11 +131,11 @@ function drawQuestion(phrase) {
 
 function attachEvents() {
     for(let speakButton of document.getElementsByClassName("speak-button")) {
-        speakButton.addEventListener("click", speakAnswer);
+        addTouchClickEvent(speakButton, speakAnswer)
     }
 
     for(let visibilityButton of document.getElementsByClassName("toggle-visability")) {
-        visibilityButton.addEventListener("click", toggleVisability);
+        addTouchClickEvent(visibilityButton, toggleVisability)
     }
 }
 
@@ -203,4 +215,10 @@ function drawTotals(question, total) {
 function totalsTemplate() {
     return  `
     <div>[[question]]/[[total]]</div>`
+}
+
+function addTouchClickEvent(thingToAttachTo, methodToTrigger) {
+    clickEvents.forEach(function(e){
+        thingToAttachTo.addEventListener(e, methodToTrigger)
+    })
 }

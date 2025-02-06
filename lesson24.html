@@ -10,6 +10,10 @@
 
 </head>
 <body>
+    <div class="top-buttons">
+        <a href="index.html"><button class="back-button">Back</button></a>
+        <button class="restart-button">Restart</button>
+    </div>
     <div class="container">
     </div>
     <script src="main.js"></script>
@@ -33,13 +37,13 @@
                 {"english":"Please", "french": "S'il vous plaît"},
                 {"english":"It’s hot", "french": "Il fait chaud"},
                 {"english":"It’s cold", "french": "Il fait froid"},
-                {"english":"Could you take my photo, please?", "french": "Est-ce que vous pourriez prendre ma photo, s’il vous plaît?"},
                 {"english":"It’s sunny", "french": "Il fait soleil"},
-                {"english":"It’s windy", "french": "Il fait venteux"},
-                {"english":"", "french": ""}
+                {"english":"It’s windy", "french": "Il fait venteux"}
             ]
         }
+        setup()
         displayPhrases(phrases())
+
     </script>
 
     <script>
@@ -49,15 +53,15 @@
 
         // Function that attempts to request a screen wake lock.
         const requestWakeLock = async () => {
-        try {
-            wakeLock = await navigator.wakeLock.request();
-            wakeLock.addEventListener('release', () => {
-            console.log('Screen Wake Lock released:', wakeLock.released);
-            });
-            console.log('Screen Wake Lock released:', wakeLock.released);
-        } catch (err) {
-            console.error(`${err.name}, ${err.message}`);
-        }
+            try {
+                wakeLock = await navigator.wakeLock.request();
+                wakeLock.addEventListener('release', () => {
+                    console.log('Screen Wake Lock released:', wakeLock.released);
+                });
+                console.log('Screen Wake Lock released:', wakeLock.released);
+            } catch (err) {
+                console.error(`${err.name}, ${err.message}`);
+            }
         };
 
         // Request a screen wake lock…
