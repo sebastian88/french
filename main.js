@@ -6,8 +6,9 @@ function setup() {
     addTouchClickEvent(document.getElementsByClassName("restart-button")[0], clickReload)
 }
 
-function clickReload() {
+function clickReload(event) {
     location.reload();
+    event.preventDefault()
     return false;
 }
 
@@ -78,12 +79,14 @@ function showRandomQuestion() {
 
 }
 
-function score() {
+function score(event) {
     window.currentScore += 1
-    nextRandomQuestion()
+    nextRandomQuestion(event)
+    event.preventDefault()
 }
 
-function nextRandomQuestion() {
+function nextRandomQuestion(event) {
+    event.preventDefault()
     if(window.phrases.length == 0){
         window.container.innerHTML = `<h2 class="english_question">Score ` + window.currentScore + `/` + window.total + `</h2>`
     }
@@ -145,10 +148,12 @@ function toggleVisability(event) {
     let text = parent.getElementsByClassName(element)[0]
 
     text.style.visibility = text.style.visibility == "visible" ? "hidden" : "visible";
+    event.preventDefault()
 }
 
 function speakAnswer(event) {
     speak(getText(event))
+    event.preventDefault()
 }
 
 function getText(event) {
