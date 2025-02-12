@@ -12,6 +12,24 @@ function clickReload(event) {
     return false;
 }
 
+async function getAndDisplayPhrases() {
+    const phrases = await fetchAsync("http://127.0.0.1:5000/phrases")
+    window.phrases = phrases
+    window.container = document.getElementsByClassName("container")[0]
+    window.currentScore = 0
+    window.currentQuestion = 0
+    window.phrases = window.phrases.sort(sortRandom)
+    window.total = window.phrases.length
+    showRandomQuestion();
+    attachEvents()
+}
+
+async function fetchAsync(url) {
+    let response = await fetch(url);
+    let data = await response.json();
+    return data;
+}
+
 function displayPhrases(phrases) {
     window.phrases = getPhrases(phrases)
     window.container = document.getElementsByClassName("container")[0]
@@ -69,25 +87,50 @@ function sortRandom(a, b) {
 
 function showRandomQuestion() {
     window.currentQuestion++
-    drawQuestion(window.phrases[0])
-    window.phrases.splice(0, 1)
+    drawQuestion(window.phrases[window.currentQuestion - 1])
     window.container.innerHTML += buttonsTemplate()
     window.container.innerHTML += drawTotals(window.currentQuestion, window.total)
 
-    addTouchClickEvent(document.getElementsByClassName("incorrect")[0], nextRandomQuestion)
-    addTouchClickEvent(document.getElementsByClassName("correct")[0], score)
+    addTouchClickEvent(document.getElementsByClassName("incorrect")[0], incorrect)
+    addTouchClickEvent(document.getElementsByClassName("correct")[0], correct)
 
 }
 
-function score(event) {
+function correct(event) {
+    event.preventDefault()
+    sendAttempt(true)
     window.currentScore += 1
-    nextRandomQuestion(event)
-    event.preventDefault()
+    nextRandomQuestion()
 }
 
-function nextRandomQuestion(event) {
+function sendAttempt(correct) {
+    const currentPhrase = window.phrases[window.currentQuestion - 1]
+    if(currentPhrase.id)
+        submitPhraseAttempt('http://127.0.0.1:5000/phrase_attempt/' + currentPhrase.id + '/' + correct, currentPhrase)
+}
+
+async function submitPhraseAttempt(url, currentPhrase) {
+    let response = await fetch(url, { method: 'POST'});
+    let data = await response.json();
+    if(data.status === 'Unlearned')
+    {
+        toast(data.status + ": " + currentPhrase.french)
+        boop();
+    }
+    else if(data.status === 'Learned') {
+        toast(data.status + ": " + currentPhrase.french)
+        beep();
+    }
+}
+
+function incorrect(event) {
     event.preventDefault()
-    if(window.phrases.length == 0){
+    sendAttempt(false)
+    nextRandomQuestion()
+}
+
+function nextRandomQuestion() {
+    if(window.phrases.length === window.currentQuestion){
         window.container.innerHTML = `<h2 class="english_question">Score ` + window.currentScore + `/` + window.total + `</h2>`
     }
     else {

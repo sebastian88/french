@@ -1,0 +1,32 @@
+/* TOAST.CSS */
+
+/* toast message container — centered bottom-middle */
+.toastContain {
+    /* @apply z-50 fixed left-1/2 bottom-16 w-fit min-w-72 -translate-x-1/2; */
+    position: fixed;
+    left: 50%;
+    bottom: 40px;
+    width: 600px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+  }
+  
+  /* toast message, style as you need */
+  .toast {
+    /* @apply opacity-0 min-h-8 -mt-10 rounded-md py-3 px-4 bg-white border border-stone-200 text-center shadow-xs; */
+    background-color: greenyellow;
+    text-align: center;
+    font-size: 50px;
+  }
+  
+  /* toast message transitions (easier to do in native css vs tailwind) */
+  /* kept separate from above to make tailwind happy. */
+  .toast {
+   transform: scale(0.9) translateY(50px);
+   transition: margin-top 0.5s, transform 0.5s, opacity 0.5s;
+  }
+  
+  /* how the toast transitions when it's transitioned in */
+  .toast.open {
+    @apply mt-2 scale-100 translate-y-0 opacity-100;
+  }

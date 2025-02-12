@@ -1,0 +1,11 @@
+services:
+
+  db-mysql:
+    platform: linux/x86_64
+    image: library/mysql:8.0.41
+    environment:
+      - MYSQL_ROOT_PASSWORD=testpassword
+    ports:
+      - 3306:3306
+    volumes:
+      - ./01_initialSchema.sql:/docker-entrypoint-initdb.d/01_initialSchema.sql
