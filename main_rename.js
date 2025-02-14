@@ -172,12 +172,12 @@ function drawQuestion(phrase) {
     }
     else if(phrase.french) {
         window.container.innerHTML = window.container.innerHTML + smallTemplate()
-            .replace("[[english]]", phrase.english.replace("'","’"))
-            .replace("[[french]]", phrase.french.replace("'","’"))
+            .replace("[[english]]", phrase.english)
+            .replace("[[french]]", phrase.french)
     }
     else {
-        // window.container.innerHTML = window.container.innerHTML + titleTemplate()
-        //     .replace("[[title]]", phrase.title)
+        window.container.innerHTML = window.container.innerHTML + titleTemplate()
+            .replace("[[title]]", phrase.title)
     }
 }
 
@@ -241,8 +241,13 @@ function bigTemplate() {
 }
 
 function smallTemplate() {
-    return  `
-    <pre>('[[english]]', '[[french]]', 'Todo'),</pre>`
+    return  `<div class="phrase">
+        <h2 class="english_question">[[english]]</h2>
+        
+        <p class="question">[[french]]</p>
+        <button class="speak-button" data-text="question">Speak French</button>
+        <button class="toggle-visability" data-element="question">Show French</button>
+    </div>`
 }
 
 function titleTemplate() {
