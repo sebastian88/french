@@ -1,0 +1,47 @@
+<head>
+    <meta charset="UTF-8" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="france16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="france32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="france96.png" sizes="96x96" />
+    <title>Learn French | Lesson 24</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="toast.css">
+</head>
+<body>
+    <div class="top-buttons">
+        <a href="index.html"><button class="back-button">Back</button></a>
+        <button class="restart-button">Restart</button>
+    </div>
+    <div class="container">
+    </div>
+    <script src="toast.js"></script>
+    <script src="beep.js"></script>
+    <script src="main.js"></script>
+    <script>
+        setup()
+        getAndDisplayPhrases()
+    </script>
+
+    <script>
+
+        // The wake lock sentinel.
+        let wakeLock = null;
+
+        // Function that attempts to request a screen wake lock.
+        const requestWakeLock = async () => {
+            try {
+                wakeLock = await navigator.wakeLock.request();
+                wakeLock.addEventListener('release', () => {
+                    console.log('Screen Wake Lock released:', wakeLock.released);
+                });
+                console.log('Screen Wake Lock released:', wakeLock.released);
+            } catch (err) {
+                console.error(`${err.name}, ${err.message}`);
+            }
+        };
+
+        // Request a screen wake lock…
+        requestWakeLock();
+    </script>
+</body>
