@@ -23,6 +23,11 @@ async function getAndDisplayPhrases() {
     showRandomQuestion();
     attachEvents()
 }
+async function fetchStringAsync(url) {
+    let response = await fetch(url);
+    let data = await response.body;
+    return data;
+}
 
 async function fetchAsync(url) {
     let response = await fetch(url);
@@ -129,9 +134,10 @@ function incorrect(event) {
     nextRandomQuestion()
 }
 
-function nextRandomQuestion() {
+async function nextRandomQuestion() {
     if(window.phrases.length === window.currentQuestion){
         window.container.innerHTML = `<h2 class="english_question">Score ` + window.currentScore + `/` + window.total + `</h2>`
+        const repopulateMessage = await fetchStringAsync("https://learneroffrench.pythonanywhere.com/phrases/repopulate")
     }
     else {
         window.container.innerHTML = ""
