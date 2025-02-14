@@ -1,6 +1,6 @@
 import mysql.connector
 from datetime import datetime
-from flask import Flask, jsonify, Response, request
+from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 
 
@@ -60,7 +60,7 @@ def get_phrases():
 
     myresult = mycursor.fetchall()
 
-    return myresult
+    return jsonify(myresult)
 
 @app.route('/phrases/all', methods=['GET'])
 @cross_origin()
@@ -73,8 +73,8 @@ def get_all_phrases():
 
     myresult = mycursor.fetchall()
 
-    return myresult
-    
+    return jsonify(myresult)
+
 @app.route('/phrase_attempt/<phrase_id>/<correct>', methods=['POST'])
 @cross_origin()
 def phrase_attempt(phrase_id, correct):
@@ -96,7 +96,7 @@ def phrase_attempt(phrase_id, correct):
     if is_correct == False:
         mycursor.execute("UPDATE phrases SET status = 'Learning' where id = %s and status = 'Known'", [phrase_id])
         if mycursor.rowcount > 0:
-            return '{"status": "Unlearned"}'
+            return jsonify('{"status": "Unlearned"}')
 
     if is_correct == True:
         mycursor.execute(f"""
@@ -114,7 +114,7 @@ def phrase_attempt(phrase_id, correct):
         if len(myresult) >= 10:
             mycursor.execute("UPDATE phrases SET status = 'Known' where id = %s and status = 'Learning'", [phrase_id])
             if mycursor.rowcount > 0:
-                return '{"status": "Learned"}'
+                return jsonify('{"status": "Learned"}')
 
 
     mycursor.execute("""
@@ -124,7 +124,7 @@ def phrase_attempt(phrase_id, correct):
     myresult = mycursor.fetchone()
     if myresult['status'] == 'Learning':
         myresult['togo'] = correct_to_go
-    return myresult
+    return jsonify(myresult)
 
 @app.route('/phrase_attempts/<phrase_id>', methods=['GET'])
 @cross_origin()
@@ -137,7 +137,7 @@ def get_phrase_attempts(phrase_id):
 
     myresult = mycursor.fetchall()
 
-    return myresult
+    return jsonify(myresult)
 
 @app.route('/phrase/<phrase_id>', methods=['GET'])
 @cross_origin()
@@ -158,8 +158,8 @@ def get_phrase(phrase_id):
 
     phrase['zattempts'] = phrase_attempts
 
-    return phrase
-    
+    return jsonify(phrase)
+
 @app.route('/phrase', methods=['POST'])
 def phrase():
     

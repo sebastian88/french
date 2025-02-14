@@ -13,7 +13,7 @@ function clickReload(event) {
 }
 
 async function getAndDisplayPhrases() {
-    const phrases = await fetchAsync("http://127.0.0.1:5000/phrases")
+    const phrases = await fetchAsync("https://learneroffrench.pythonanywhere.com/phrases")
     window.phrases = phrases
     window.container = document.getElementsByClassName("container")[0]
     window.currentScore = 0
@@ -106,7 +106,7 @@ function correct(event) {
 function sendAttempt(correct) {
     const currentPhrase = window.phrases[window.currentQuestion - 1]
     if(currentPhrase.id)
-        submitPhraseAttempt('http://127.0.0.1:5000/phrase_attempt/' + currentPhrase.id + '/' + correct, currentPhrase)
+        submitPhraseAttempt('https://learneroffrench.pythonanywhere.com/phrase_attempt/' + currentPhrase.id + '/' + correct, currentPhrase)
 }
 
 async function submitPhraseAttempt(url, currentPhrase) {
