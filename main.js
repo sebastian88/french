@@ -217,7 +217,8 @@ function speak(text) {
     let utterance = new SpeechSynthesisUtterance(text)
     utterance.lang = 'fr-FR'
     utterance.voice = window.speechSynthesis.getVoices().find((voice) => voice.lang === 'fr-FR')
-    speechSynthesis.speak(utterance)
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance)
 }
 
 
