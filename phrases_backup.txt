@@ -1,0 +1,563 @@
+Your MySQL connection id is 24694168
+Server version: 8.0.42 Source distribution
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show tables;
++-----------------------------------+
+| Tables_in_learneroffrench$default |
++-----------------------------------+
+| phrase_attempts                   |
+| phrases                           |
++-----------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> select count(*) from phrases;
++----------+
+| count(*) |
++----------+
+|      519 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from phrase_
+phrase_attempts             phrase_attempts.correct     phrase_attempts.created_on  phrase_attempts.id          phrase_attempts.phrase_id   phrase_id                  
+mysql> select count(*) from phrase_attempts;
++----------+
+| count(*) |
++----------+
+|     2103 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> select * from phrases;
++-----+--------------------------------------------------+----------------------------------------------+----------+
+| id  | english                                          | french                                       | status   |
++-----+--------------------------------------------------+----------------------------------------------+----------+
+|   1 | Do you speak English                             | Parlez-vous anglais?                         | Known    |
+|   2 | Whats is your name?                              | Comment tu t’appelles?                       | Known    |
+|   3 | How are you?                                     | Comment allez-vous?                          | Known    |
+|   4 | How are you? You good?                           | Ça va? En forme?                             | Known    |
+|   5 | I speak a little French                          | Je parle un peu français.                    | Known    |
+|   6 | Where is the hotel                               | Où est l’hôtel?                              | Known    |
+|   7 | It’s beautiful weather today                     | Il fait beau aujourd’hui                     | Known    |
+|   8 | Its raining                                      | Il pleut                                     | Known    |
+|   9 | Table for 6 with 2 children and a baby           | Table pour 6 avec 2 enfants et un bébé       | Known    |
+|  10 | Can you help me?                                 | Pouvez-vous m’aider                          | Known    |
+|  11 | How much do I owe you?                           | Je vous dois combien?                        | Known    |
+|  12 | I dont understand                                | Je ne comprends pas.                         | Known    |
+|  13 | Can I have this, please?                         | Puis-je avoir ceci, s’il vous plaît?         | Known    |
+|  14 | This one                                         | Celui-là                                     | Known    |
+|  15 | Please                                           | S’il vous plaît                              | Known    |
+|  16 | It’s hot                                         | Il fait chaud                                | Known    |
+|  17 | It’s cold                                        | Il fait froid                                | Known    |
+|  18 | It’s sunny                                       | Il fait soleil                               | Known    |
+|  19 | It’s windy                                       | Il fait venteux                              | Known    |
+|  20 | How are you today?                               | comment ça va aujourd’hui?                   | Todo     |
+|  21 | How are you?                                     | Comment tu vas?                              | Known    |
+|  22 | how are you feeling today?                       | Comment tu te sens aujourd’hui?              | Todo     |
+|  23 | I’m OK/fine                                      | Ça va.                                       | Known    |
+|  24 | I’m really good                                  | Ça va très bien.                             | Todo     |
+|  25 | It’s going great!                                | Ça va super!                                 | Todo     |
+|  26 | I’m in a good mood                               | Je suis de bonne humeur                      | Todo     |
+|  27 | I’m feeling good                                 | Je suis en forme                             | Known    |
+|  28 | I’m in a good mood                               | J’ai la patate                               | Known    |
+|  29 | I’ve had a good morning                          | J’ai passé une bonne matinée                 | Todo     |
+|  30 | I’ve had a good day                              | J’ai passé une bonne journée                 | Todo     |
+|  31 | I’m not very good                                | Ça ne va pas très bien.                      | Todo     |
+|  32 | I’m not good                                     | Ça ne va pas.                                | Todo     |
+|  33 | I’m really not good                              | Ça va mal.                                   | Todo     |
+|  34 | I’m not feeling very good                        | Je ne me sens pas très bien.                 | Todo     |
+|  35 | I feel bad                                       | Je me sens mal.                              | Todo     |
+|  36 | Oh really? Why?                                  | Ah bon? Pourquoi?                            | Todo     |
+|  37 | How come?                                        | Comment ça se fait?                          | Todo     |
+|  38 | What’s wrong / the matter                        | Qu’est-ce qui t’arrive?                      | Known    |
+|  39 | I am very happy                                  | Je suis très content                         | Todo     |
+|  40 | I feel really relaxed                            | Je me sens vraiment détendu                  | Todo     |
+|  41 | I am not                                         | Je ne suis pas                               | Known    |
+|  42 | I am happy                                       | Je suis Content                              | Todo     |
+|  43 | I am a Computer programmer                       | Je suis Ingénier informatique                | Known    |
+|  44 | I am from Dorset, in England?                    | Je suis De Dorset, en Angleterre             | Todo     |
+|  45 | I’m from Belfast, Northern Ireland               | Je suis De Belfast, en Irlande du Nord       | Todo     |
+|  46 | I am a man                                       | Je suis homme                                | Todo     |
+|  47 | I am surfer                                      | Je suis surfeur                              | Todo     |
+|  48 | I am english                                     | Je suis Anglais                              | Todo     |
+|  49 | I am medium height                               | Je suis de taille moyenne                    | Todo     |
+|  50 | You are not                                      | Tu n’es pas                                  | Todo     |
+|  51 | You are a Professor                              | Tu es professeur                             | Todo     |
+|  52 | You are Portuguese                               | Tu es portugais                              | Known    |
+|  53 | You are a man                                    | Tu es homme                                  | Todo     |
+|  54 | You are Happy                                    | Tu es content                                | Known    |
+|  55 | A Woman                                          | une femme                                    | Todo     |
+|  56 | I am 36 years old                                | j’ai trente-six ans.                         | Todo     |
+|  57 | I have a surfboard                               | J’ai une planche de surf.                    | Todo     |
+|  58 | I have a bicycle                                 | J’ai un vélo                                 | Todo     |
+|  59 | I have a computer                                | J’ai un ordinateur                           | Todo     |
+|  60 | I have a mobile phone                            | J’ai un téléphone portable                   | Todo     |
+|  61 | I have a pen                                     | J’ai un stylo                                | Todo     |
+|  62 | You have a computer                              | Tu as un ordinateur                          | Todo     |
+|  63 | You have some Pens                               | Tu as des stylos                             | Todo     |
+|  64 | You are 32 years old(formal)                     | Vous avez 32 ans                             | Todo     |
+|  65 | You have brown hair                              | Tu as les cheveux bruns                      | Known    |
+|  66 | You have a shirt                                 | Tu as une chemise                            | Todo     |
+|  67 | You have glasses                                 | Tu as des lunettes                           | Todo     |
+|  68 | she has                                          | elle a                                       | Todo     |
+|  69 | He has                                           | Il a                                         | Known    |
+|  70 | My brother                                       | mon frère                                    | Todo     |
+|  71 | My sister                                        | ma sœur                                      | Known    |
+|  72 | My father                                        | mon père                                     | Todo     |
+|  73 | My mother                                        | ma mère                                      | Known    |
+|  74 | My friend (male)                                 | mon ami                                      | Known    |
+|  75 | My friend (female)                               | mon amie                                     | Todo     |
+|  76 | My fiancé (male)                                 | mon fiancé                                   | Todo     |
+|  77 | my fiancée (female)                              | ma fiancée                                   | Todo     |
+|  78 | What’s your fiance’s name                        | Comment s’appelle ton fiancé                 | Todo     |
+|  79 | Her name is                                      | Il/elle s’appelle                            | Todo     |
+|  80 | His name is                                      | Il s’appelle                                 | Known    |
+|  81 | How or what                                      | Comment                                      | Known    |
+|  82 | 1                                                | un                                           | Todo     |
+|  83 | 2                                                | deux                                         | Todo     |
+|  84 | 3                                                | trois                                        | Todo     |
+|  85 | 4                                                | quatre                                       | Todo     |
+|  86 | 5                                                | cinq                                         | Todo     |
+|  87 | 6                                                | six                                          | Todo     |
+|  88 | 7                                                | sept                                         | Known    |
+|  89 | 8                                                | huit                                         | Known    |
+|  90 | 9                                                | neuf                                         | Todo     |
+|  91 | 10                                               | dix                                          | Known    |
+|  92 | 11                                               | onze                                         | Learning |
+|  93 | 12                                               | douze                                        | Todo     |
+|  94 | 13                                               | treize                                       | Todo     |
+|  95 | 14                                               | quatorze                                     | Todo     |
+|  96 | 15                                               | quinze                                       | Todo     |
+|  97 | 16                                               | seize                                        | Todo     |
+|  98 | 17                                               | dix-sept                                     | Learning |
+|  99 | 18                                               | dix-huit                                     | Todo     |
+| 100 | 19                                               | dix-neuf                                     | Todo     |
+| 101 | 20                                               | vingt                                        | Todo     |
+| 102 | 30                                               | trente                                       | Todo     |
+| 103 | 40                                               | quarante                                     | Todo     |
+| 104 | 50                                               | cinquante                                    | Todo     |
+| 105 | 60                                               | soixante                                     | Todo     |
+| 106 | 70                                               | soixante-dix                                 | Todo     |
+| 107 | 75                                               | soixante-quinze                              | Known    |
+| 108 | 80                                               | quatre-vingt                                 | Learning |
+| 109 | 90                                               | quatre-vingt-dix                             | Todo     |
+| 110 | 99                                               | quatre-vingt-dix-neuf                        | Todo     |
+| 111 | 100                                              | cent                                         | Todo     |
+| 112 | What is your telephone number?                   | Quel est votre numéro de téléphone?          | Todo     |
+| 113 | What are your telephone numbers?                 | Quels sont vos numéros de téléphone          | Todo     |
+| 114 | What is your date of birth?                      | Quelle est votre date de naissance           | Todo     |
+| 115 | What is your email address?                      | Quelle est votre adresse mail                | Todo     |
+| 116 | What is your address?                            | Quelle est votre adresse                     | Known    |
+| 117 | What are your contact details?                   | Quelles sont vos coordonnées                 | Known    |
+| 118 | a                                                | a                                            | Todo     |
+| 119 | b                                                | b                                            | Todo     |
+| 120 | c                                                | c                                            | Todo     |
+| 121 | d                                                | d                                            | Known    |
+| 122 | e                                                | e                                            | Known    |
+| 123 | f                                                | f                                            | Known    |
+| 124 | g                                                | g                                            | Todo     |
+| 125 | h                                                | h                                            | Todo     |
+| 126 | i                                                | i                                            | Todo     |
+| 127 | j                                                | j                                            | Todo     |
+| 128 | k                                                | k                                            | Todo     |
+| 129 | l                                                | l                                            | Todo     |
+| 130 | m                                                | m                                            | Todo     |
+| 131 | n                                                | n                                            | Todo     |
+| 132 | o                                                | o                                            | Todo     |
+| 133 | p                                                | p                                            | Todo     |
+| 134 | q                                                | q                                            | Todo     |
+| 135 | r                                                | r                                            | Todo     |
+| 136 | s                                                | s                                            | Known    |
+| 137 | t                                                | t                                            | Known    |
+| 138 | u                                                | u                                            | Todo     |
+| 139 | v                                                | v                                            | Todo     |
+| 140 | w                                                | w                                            | Todo     |
+| 141 | x                                                | x                                            | Todo     |
+| 142 | y                                                | y                                            | Todo     |
+| 143 | z                                                | z                                            | Todo     |
+| 144 | I like                                           | j’aime                                       | Todo     |
+| 145 | You like (casual)                                | Tu aimes                                     | Known    |
+| 146 | He likes                                         | il aime                                      | Todo     |
+| 147 | She likes                                        | elle aime                                    | Todo     |
+| 148 | One/we likes                                     | On aime                                      | Todo     |
+| 149 | We like                                          | Nous aimons                                  | Known    |
+| 150 | You like (plural)                                | Vous aimez                                   | Todo     |
+| 151 | You like (formal)                                | Vous aimez                                   | Todo     |
+| 152 | They like (masculine)                            | ils aiment                                   | Todo     |
+| 153 | They like (feminine)                             | elles aiment                                 | Learning |
+| 154 | My brother                                       | Mon frère                                    | Todo     |
+| 155 | My sister                                        | ma sœurs                                     | Known    |
+| 156 | My brothers                                      | mes frères                                   | Known    |
+| 157 | Your brother (casual)                            | ton frère                                    | Todo     |
+| 158 | Your sister (casual)                             | ta sœur                                      | Known    |
+| 159 | Your sisters (casual)                            | tes sœurs                                    | Todo     |
+| 160 | His brother                                      | son frère                                    | Todo     |
+| 161 | Her brother                                      | son frère                                    | Todo     |
+| 162 | Her sister                                       | sa sœurs                                     | Todo     |
+| 163 | His sister                                       | sa sœurs                                     | Todo     |
+| 164 | His sisters                                      | ses sœurs                                    | Todo     |
+| 165 | Her sisters                                      | ses sœurs                                    | Todo     |
+| 166 | Our sister                                       | notre sœur                                   | Todo     |
+| 167 | Our brothers                                     | nos frères                                   | Todo     |
+| 168 | Your brother (formal)                            | votre frère                                  | Todo     |
+| 169 | Your sisters (formal)                            | vos sœurs                                    | Todo     |
+| 170 | Their (singular) sister                          | leur sœur                                    | Todo     |
+| 171 | Their (plural) sisters                           | leurs sœurs                                  | Todo     |
+| 172 | I like chocolate                                 | J’aime le chocolat                           | Todo     |
+| 173 | I like the bike                                  | J’aime le vélo                               | Learning |
+| 174 | I like champagne                                 | J’aime le Champagne                          | Todo     |
+| 175 | I like water                                     | J’aime l’eau                                 | Todo     |
+| 176 | I like cheese                                    | J’aime le fromage                            | Todo     |
+| 177 | I like fish                                      | J’aime le poisson                            | Todo     |
+| 178 | I like meat                                      | J’aime la viande                             | Learning |
+| 179 | I like pizza                                     | J’aime la pizza                              | Todo     |
+| 180 | I like bikes                                     | J’aime les vélos                             | Todo     |
+| 181 | I like croissants                                | J’aime les croissants                        | Todo     |
+| 182 | I like pains au chocolats                        | J’aime les pains au chocolat                 | Todo     |
+| 183 | I like oranges                                   | J’aime les oranges                           | Learning |
+| 184 | You like chocolate                               | Tu aimes le chocolat                         | Todo     |
+| 185 | You like the bike                                | Tu aimes le vélo                             | Todo     |
+| 186 | You like champagne                               | Tu aimes le Champagne                        | Todo     |
+| 187 | You like water                                   | Tu aimes l’eau                               | Todo     |
+| 188 | You like cheese                                  | Tu aimes le fromage                          | Todo     |
+| 189 | You like fish                                    | Tu aimes le poisson                          | Todo     |
+| 190 | You like meat                                    | Tu aimes la viande                           | Todo     |
+| 191 | You like pizza                                   | Tu aimes la pizza                            | Todo     |
+| 192 | You like bikes                                   | Tu aimes les vélos                           | Todo     |
+| 193 | You like croissants                              | Tu aimes les croissants                      | Todo     |
+| 194 | You like pains au chocolats                      | Tu aimes les pains au chocolat               | Todo     |
+| 195 | You like oranges                                 | Tu aimes les oranges                         | Todo     |
+| 196 | She likes chocolate                              | Elle aimes le chocolat                       | Todo     |
+| 197 | She likes the bike                               | Elle aimes le vélo                           | Known    |
+| 198 | She likes champagne                              | Elle aimes le Champagne                      | Todo     |
+| 199 | She likes water                                  | Elle aimes l’eau                             | Todo     |
+| 200 | She likes cheese                                 | Elle aimes le fromage                        | Todo     |
+| 201 | She likes fish                                   | Elle aimes le poisson                        | Todo     |
+| 202 | She likes meat                                   | Elle aimes la viande                         | Todo     |
+| 203 | She likes pizza                                  | Elle aimes la pizza                          | Todo     |
+| 204 | She likes bikes                                  | Elle aimes les vélos                         | Todo     |
+| 205 | She likes croissants                             | Elle aimes les croissants                    | Todo     |
+| 206 | She likes pains au chocolats                     | Elle aimes les pains au chocolat             | Known    |
+| 207 | She likes oranges                                | Elle aimes les oranges                       | Todo     |
+| 208 | He likes chocolate                               | Il aimes le chocolat                         | Known    |
+| 209 | He likes the bike                                | Il aimes le vélo                             | Todo     |
+| 210 | He likes champagne                               | Il aimes le Champagne                        | Known    |
+| 211 | He likes water                                   | Il aimes l’eau                               | Todo     |
+| 212 | He likes cheese                                  | Il aimes le fromage                          | Todo     |
+| 213 | He likes fish                                    | Il aimes le poisson                          | Known    |
+| 214 | He likes meat                                    | Il aimes la viande                           | Todo     |
+| 215 | He likes pizza                                   | Il aimes la pizza                            | Todo     |
+| 216 | He likes bikes                                   | Il aimes les vélos                           | Todo     |
+| 217 | He likes croissants                              | Il aimes les croissants                      | Todo     |
+| 218 | He likes pains au chocolats                      | Il aimes les pains au chocolat               | Todo     |
+| 219 | He likes oranges                                 | Il aimes les oranges                         | Todo     |
+| 220 | We like chocolate                                | Nous aimons le chocolat                      | Todo     |
+| 221 | We like the bike                                 | Nous aimons le vélo                          | Todo     |
+| 222 | We like champagne                                | Nous aimons le Champagne                     | Todo     |
+| 223 | We like water                                    | Nous aimons l’eau                            | Todo     |
+| 224 | We like cheese                                   | Nous aimons le fromage                       | Todo     |
+| 225 | We like fish                                     | Nous aimons le poisson                       | Known    |
+| 226 | We like meat                                     | Nous aimons la viande                        | Learning |
+| 227 | We like pizza                                    | Nous aimons la pizza                         | Todo     |
+| 228 | We like bikes                                    | Nous aimons les vélos                        | Known    |
+| 229 | We like croissants                               | Nous aimons les croissants                   | Todo     |
+| 230 | We like pains au chocolats                       | Nous aimons les pains au chocolat            | Todo     |
+| 231 | We like oranges                                  | Nous aimons les oranges                      | Known    |
+| 232 | You like chocolate (plural/formal)               | Vous aimez le chocolat                       | Todo     |
+| 233 | You like the (plural/formal) bike                | Vous aimez le vélo                           | Todo     |
+| 234 | You like champagne (plural/formal)               | Vous aimez le Champagne                      | Todo     |
+| 235 | You like water (plural/formal)                   | Vous aimez l’eau                             | Todo     |
+| 236 | You like cheese (plural/formal)                  | Vous aimez le fromage                        | Todo     |
+| 237 | You like fish (plural/formal)                    | Vous aimez le poisson                        | Todo     |
+| 238 | You like meat (plural/formal)                    | Vous aimez la viande                         | Todo     |
+| 239 | You like pizza (plural/formal)                   | Vous aimez la pizza                          | Todo     |
+| 240 | You like bikes (plural/formal)                   | Vous aimez les vélos                         | Todo     |
+| 241 | You like croissants (plural/formal)              | Vous aimez les croissants                    | Todo     |
+| 242 | You like pains au chocolats (plural/formal)      | Vous aimez les pains au chocolat             | Todo     |
+| 243 | You like oranges (plural/formal)                 | Vous aimez les oranges                       | Todo     |
+| 244 | They (feminine) like chocolate                   | Elles aiment le chocolat                     | Todo     |
+| 245 | They (feminine) like the bike                    | Elles aiment le vélo                         | Todo     |
+| 246 | They (feminine) like champagne                   | Elles aiment le Champagne                    | Todo     |
+| 247 | They (feminine) like water                       | Elles aiment l’eau                           | Todo     |
+| 248 | They (feminine) like cheese                      | Elles aiment le fromage                      | Todo     |
+| 249 | They (feminine) like fish                        | Elles aiment le poisson                      | Todo     |
+| 250 | They (feminine) like meat                        | Elles aiment la viande                       | Todo     |
+| 251 | They (feminine) like pizza                       | Elles aiment la pizza                        | Todo     |
+| 252 | They (feminine) like bikes                       | Elles aiment les vélos                       | Todo     |
+| 253 | They (feminine) like croissants                  | Elles aiment les croissants                  | Todo     |
+| 254 | They (feminine) like pains au chocolats          | Elles aiment les pains au chocolat           | Todo     |
+| 255 | They (feminine) like oranges                     | Elles aiment les oranges                     | Todo     |
+| 256 | They (masculine) like chocolate                  | Ils aiment le chocolat                       | Todo     |
+| 257 | They (masculine) like the bike                   | Ils aiment le vélo                           | Todo     |
+| 258 | They (masculine) like champagne                  | Ils aiment le Champagne                      | Todo     |
+| 259 | They (masculine) like water                      | Ils aiment l’eau                             | Todo     |
+| 260 | They (masculine) like cheese                     | Ils aiment le fromage                        | Todo     |
+| 261 | They (masculine) like fish                       | Ils aiment le poisson                        | Todo     |
+| 262 | They (masculine) like meat                       | Ils aiment la viande                         | Todo     |
+| 263 | They (masculine) like pizza                      | Ils aiment la pizza                          | Todo     |
+| 264 | They (masculine) like bikes                      | Ils aiment les vélos                         | Known    |
+| 265 | They (masculine) like croissants                 | Ils aiment les croissants                    | Todo     |
+| 266 | They (masculine) like pains au chocolats         | Ils aiment les pains au chocolat             | Todo     |
+| 267 | They (masculine) like oranges                    | Ils aiment les oranges                       | Todo     |
+| 268 | I am a man                                       | Je suis homme                                | Known    |
+| 269 | You are a man                                    | Tu es homme                                  | Learning |
+| 270 | He is a man                                      | Il est homme                                 | Todo     |
+| 271 | She is a woman                                   | Elle est femme                               | Todo     |
+| 272 | We are men                                       | Nous sommes hommes                           | Todo     |
+| 273 | You (plural) are women                           | Vous êtes femmes                             | Todo     |
+| 274 | They are men                                     | Ils sont hommes                              | Known    |
+| 275 | They are women                                   | Elles sont femmes                            | Known    |
+| 276 | I have the chocolate                             | J’ai le chocolat                             | Todo     |
+| 277 | You (casual) have the chocolate                  | Tu as le chocolat                            | Known    |
+| 278 | He have the chocolate                            | Il a le chocolat                             | Todo     |
+| 279 | She have the chocolate                           | Elle a le chocolat                           | Todo     |
+| 280 | We have the chocolate                            | Nous avons le chocolat                       | Todo     |
+| 281 | You (formal) have the chocolate                  | Vous aves le chocolat                        | Todo     |
+| 282 | They (feminine) have the chocolate               | Elles ont le chocolat                        | Todo     |
+| 283 | They (masculine) have the chocolate              | Ils ont le chocolat                          | Todo     |
+| 284 | Can you repeat the question                      | Pouvez vous répéter la question              | Known    |
+| 285 | I do not know                                    | je ne sais pas                               | Todo     |
+| 286 | How do you say cheese in French                  | Comment dit-on fromage en Français           | Todo     |
+| 287 | There are five people in my family.              | Il y a cinq personnes dans ma famille        | Known    |
+| 288 | There is a surfboard in my room                  | Il y a une planche de surfe dans ma chambre  | Todo     |
+| 289 | There are three guinea pigs in my house          | Il y a trois cochons d’Inde chez moi         | Todo     |
+| 290 | There is no hamster in my house                  | Il n’y a pas de hamster chez moi             | Todo     |
+| 291 | How many people are in your family?              | Il y a combien de personnes dans ta famille? | Todo     |
+| 292 | How many guinea pigs are there in your house?    | Il y a combien de cochons d’Inde chez toi?   | Todo     |
+| 293 | I know how to surf                               | Je sais surfer                               | Todo     |
+| 294 | You (casual) know how to surf                    | Tu sais surfer                               | Todo     |
+| 295 | He knows how to surf                             | Il sais surfer                               | Todo     |
+| 296 | She knows how to surf                            | Elle sais surfer                             | Todo     |
+| 297 | We know how to surf                              | Nous savons surfer                           | Known    |
+| 298 | You (formal) know how to surf                    | Vous savez surfer                            | Todo     |
+| 299 | Hes know how to surf                             | Ills savent surfer                           | Todo     |
+| 300 | Shes know how to surf                            | Elles savent surfer                          | Todo     |
+| 301 | I like to play football                          | J’aime jouer au foot                         | Todo     |
+| 302 | You (casual) like to play football               | Tu aimes jouer au foot                       | Todo     |
+| 303 | He likes to play football                        | Il aime jouer au foot                        | Known    |
+| 304 | She likes to play football                       | Elle aime jouer au foot                      | Learning |
+| 305 | We like to play football                         | Nous aimons jouer au foot                    | Todo     |
+| 306 | You (formal) to play football                    | Vous aimez jouer au foot                     | Todo     |
+| 307 | They (masculine) like to play football           | Ils aiment jouer au foot                     | Todo     |
+| 308 | They (feminine) like to play football            | Elles aiment jouer au foot                   | Todo     |
+| 309 | I like to play petanque                          | J’aime jouer à la pétanque                   | Todo     |
+| 310 | You (casual) like to play petanque               | Tu aimes jouer à la pétanque                 | Known    |
+| 311 | He likes to play petanque                        | Il aime jouer à la pétanque                  | Todo     |
+| 312 | She likes to play petanque                       | Elle aime jouer à la pétanque                | Known    |
+| 313 | We like to play petanque                         | Nous aimons jouer à la pétanque              | Todo     |
+| 314 | You (formal) to play petanque                    | Vous aimez jouer à la pétanque               | Todo     |
+| 315 | They (masculine) like to play petanque           | Ils aiment jouer à la pétanque               | Todo     |
+| 316 | They (feminine) like to play petanque            | Elles aiment jouer à la pétanque             | Todo     |
+| 317 | I like to play chess                             | J’aime jouer aux échecs                      | Known    |
+| 318 | You (casual) like to play chess                  | Tu aimes jouer aux échecs                    | Todo     |
+| 319 | He likes to play chess                           | Il aime jouer aux échecs                     | Todo     |
+| 320 | She likes to play chess                          | Elle aime jouer aux échecs                   | Todo     |
+| 321 | We like to play chess                            | Nous aimons jouer aux échecs                 | Todo     |
+| 322 | You (formal) to play chess                       | Vous aimez jouer aux échecs                  | Known    |
+| 323 | They (masculine) like to play chess              | Ils aiment jouer aux échecs                  | Todo     |
+| 324 | They (feminine) like to play chess               | Elles aiment jouer aux échecs                | Todo     |
+| 325 | I like to read novels                            | J’aime lire des romans                       | Todo     |
+| 326 | You (casual) like to read novels                 | Tu aimes lire des romans                     | Todo     |
+| 327 | He likes to read novels                          | Il aime lire des romans                      | Todo     |
+| 328 | She likes to read novels                         | Elle aime lire des romans                    | Todo     |
+| 329 | We like to read novels                           | Nous aimons lire des romans                  | Todo     |
+| 330 | You (formal) to read novels                      | Vous aimez lire des romans                   | Todo     |
+| 331 | They (masculine) like to read novels             | Ils aiment lire des romans                   | Todo     |
+| 332 | They (feminine) like to read novels              | Elles aiment lire des romans                 | Known    |
+| 333 | I like to read magazines                         | J’aime lire des magazines                    | Todo     |
+| 334 | You (casual) like to read magazines              | Tu aimes lire des magazines                  | Todo     |
+| 335 | He likes to read magazines                       | Il aime lire des magazines                   | Todo     |
+| 336 | She likes to read magazines                      | Elle aime lire des magazines                 | Learning |
+| 337 | We like to read magazines                        | Nous aimons lire des magazines               | Todo     |
+| 338 | You (formal) to read magazines                   | Vous aimez lire des magazines                | Learning |
+| 339 | They (masculine) like to read magazines          | Ils aiment lire des magazines                | Known    |
+| 340 | They (feminine) like to read magazines           | Elles aiment lire des magazines              | Todo     |
+| 341 | I like reading books                             | J’aime lire des livres.                      | Todo     |
+| 342 | You (casual) like reading books                  | Tu aimes lire des livres.                    | Known    |
+| 343 | He likes reading books                           | Il aime lire des livres.                     | Todo     |
+| 344 | She likes reading books                          | Elle aime lire des livres.                   | Known    |
+| 345 | We like reading books                            | Nous aimons lire des livres.                 | Todo     |
+| 346 | You (formal) reading books                       | Vous aimez lire des livres.                  | Todo     |
+| 347 | They (masculine) like reading books              | Ils aiment lire des livres.                  | Known    |
+| 348 | They (feminine) like reading books               | Elles aiment lire des livres.                | Todo     |
+| 349 | I like to watch the news                         | J’aime regarder les informations             | Todo     |
+| 350 | You (casual) like to watch the news              | Tu aimes regarder les informations           | Todo     |
+| 351 | He likes to watch the news                       | Il aime regarder les informations            | Todo     |
+| 352 | She likes to watch the news                      | Elle aime regarder les informations          | Todo     |
+| 353 | We like to watch the news                        | Nous aimons regarder les informations        | Todo     |
+| 354 | You (formal) to watch the news                   | Vous aimez regarder les informations         | Learning |
+| 355 | They (masculine) like to watch the news          | Ils aiment regarder les informations         | Todo     |
+| 356 | They (feminine) like to watch the news           | Elles aiment regarder les informations       | Todo     |
+| 357 | I like to watch series                           | J’aime regarder des séries                   | Learning |
+| 358 | You (casual) like to watch series                | Tu aimes regarder des séries                 | Todo     |
+| 359 | He likes to watch series                         | Il aime regarder des séries                  | Todo     |
+| 360 | She likes to watch series                        | Elle aime regarder des séries                | Known    |
+| 361 | We like to watch series                          | Nous aimons regarder des séries              | Todo     |
+| 362 | You (formal) to watch series                     | Vous aimez regarder des séries               | Todo     |
+| 363 | They (masculine) like to watch series            | Ils aiment regarder des séries               | Todo     |
+| 364 | They (feminine) like to watch series             | Elles aiment regarder des séries             | Todo     |
+| 365 | I like to watch football                         | J’aime regarder le foot                      | Todo     |
+| 366 | You (casual) like to watch football              | Tu aimes regarder le foot                    | Todo     |
+| 367 | He likes to watch football                       | Il aime regarder le foot                     | Todo     |
+| 368 | She likes to watch football                      | Elle aime regarder le foot                   | Todo     |
+| 369 | We like to watch football                        | Nous aimons regarder le foot                 | Todo     |
+| 370 | You (formal) to watch football                   | Vous aimez regarder le foot                  | Todo     |
+| 371 | They (masculine) like to watch football          | Ils aiment regarder le foot                  | Todo     |
+| 372 | They (feminine) like to watch football           | Elles aiment regarder le foot                | Todo     |
+| 373 | I like to surf                                   | J’aime faire du surf                         | Todo     |
+| 374 | You (casual) like to surf                        | Tu aimes faire du surf                       | Todo     |
+| 375 | He likes to surf                                 | Il aime faire du surf                        | Known    |
+| 376 | She likes to surf                                | Elle aime faire du surf                      | Known    |
+| 377 | We like to surf                                  | Nous aimons faire du surf                    | Known    |
+| 378 | You (formal) to surf                             | Vous aimez faire du surf                     | Todo     |
+| 379 | They (masculine) like to surf                    | Ils aiment faire du surf                     | Todo     |
+| 380 | They (feminine) like to surf                     | Elles aiment faire du surf                   | Todo     |
+| 381 | I like to go shopping                            | J’aime faire les courses                     | Todo     |
+| 382 | You (casual) like to go shopping                 | Tu aimes faire les courses                   | Todo     |
+| 383 | He likes to go shopping                          | Il aime faire les courses                    | Todo     |
+| 384 | She likes to go shopping                         | Elle aime faire les courses                  | Todo     |
+| 385 | We like to go shopping                           | Nous aimons faire les courses                | Todo     |
+| 386 | You (formal) to go shopping                      | Vous aimez faire les courses                 | Todo     |
+| 387 | They (masculine) like to go shopping             | Ils aiment faire les courses                 | Todo     |
+| 388 | They (feminine) like to go shopping              | Elles aiment faire les courses               | Todo     |
+| 389 | I like to clean                                  | J’aime faire le ménage                       | Todo     |
+| 390 | You (casual) like to clean                       | Tu aimes faire le ménage                     | Todo     |
+| 391 | He likes to clean                                | Il aime faire le ménage                      | Todo     |
+| 392 | She likes to clean                               | Elle aime faire le ménage                    | Todo     |
+| 393 | We like to clean                                 | Nous aimons faire le ménage                  | Known    |
+| 394 | You (formal) to clean                            | Vous aimez faire le ménage                   | Todo     |
+| 395 | They (masculine) like to clean                   | Ils aiment faire le ménage                   | Todo     |
+| 396 | They (feminine) like to clean                    | Elles aiment faire le ménage                 | Todo     |
+| 397 | I like to cook                                   | J’aime faire la cuisine                      | Todo     |
+| 398 | You (casual) like to cook                        | Tu aimes faire la cuisine                    | Todo     |
+| 399 | He likes to cook                                 | Il aime faire la cuisine                     | Learning |
+| 400 | She likes to cook                                | Elle aime faire la cuisine                   | Todo     |
+| 401 | We like to cook                                  | Nous aimons faire la cuisine                 | Known    |
+| 402 | You (formal) to cook                             | Vous aimez faire la cuisine                  | Known    |
+| 403 | They (masculine) like to cook                    | Ils aiment faire la cuisine                  | Todo     |
+| 404 | They (feminine) like to cook                     | Elles aiment faire la cuisine                | Todo     |
+| 405 | I know Elton John                                | Je connais Elton John                        | Todo     |
+| 406 | You (casual) know Elton John                     | Tu connais Elton John                        | Todo     |
+| 407 | He knows Elton John                              | Il connaît Elton John                        | Todo     |
+| 408 | She knows Elton John                             | Elle connaît Elton John                      | Known    |
+| 409 | We know Elton John                               | Nous connaissons Elton John                  | Todo     |
+| 410 | You (formal) know Elton John                     | Vous connaissez Elton John                   | Todo     |
+| 411 | They (mas) know Elton John                       | Ils connaissent Elton John                   | Todo     |
+| 412 | They (fem) know Elton John                       | elles connaissent Elton John                 | Todo     |
+| 413 | I’m going to the restaurant.                     | Je vais au restaurant.                       | Todo     |
+| 414 | I’m going to a bar.                              | Je vais au bar.                              | Known    |
+| 415 | I’m going to work.                               | Je vais au travail.                          | Todo     |
+| 416 | I’m going to the supermarket.                    | Je vais au supermarché.                      | Todo     |
+| 417 | I’m going to the beach.                          | Je vais à la plage.                          | Todo     |
+| 418 | I’m going to the swimming pool.                  | Je vais à la piscine.                        | Todo     |
+| 419 | I’m going to the hotel.                          | Je vais à l’hôtel.                           | Todo     |
+| 420 | I’m going to the shops.                          | Je vais aux magasins.                        | Todo     |
+| 421 | I’m going to the US.                             | Je vais aux États-Unis.                      | Todo     |
+| 422 | I’m going to the Alpes.                          | Je vais aux Alpes.                           | Todo     |
+| 423 | You are (casual) going to the restaurant.        | Tu vas au restaurant.                        | Todo     |
+| 424 | You are (casual) going to a bar.                 | Tu vas au bar.                               | Learning |
+| 425 | You are (casual) going to work.                  | Tu vas au travail.                           | Todo     |
+| 426 | You are (casual) going to the supermarket.       | Tu vas au supermarché.                       | Todo     |
+| 427 | You are (casual) going to the beach.             | Tu vas à la plage.                           | Todo     |
+| 428 | You are (casual) going to the swimming pool.     | Tu vas à la piscine.                         | Todo     |
+| 429 | You are (casual) going to the hotel.             | Tu vas à l’hôtel.                            | Todo     |
+| 430 | You are (casual) going to the shops.             | Tu vas aux magasins.                         | Known    |
+| 431 | You are (casual) going to the US.                | Tu vas aux États-Unis.                       | Todo     |
+| 432 | You are (casual) going to the Alpes.             | Tu vas aux Alpes.                            | Todo     |
+| 433 | He is going to the restaurant.                   | Il va au restaurant.                         | Todo     |
+| 434 | He is going to a bar.                            | Il va au bar.                                | Todo     |
+| 435 | He is going to work.                             | Il va au travail.                            | Todo     |
+| 436 | He is going to the supermarket.                  | Il va au supermarché.                        | Todo     |
+| 437 | He is going to the beach.                        | Il va à la plage.                            | Known    |
+| 438 | He is going to the swimming pool.                | Il va à la piscine.                          | Todo     |
+| 439 | He is going to the hotel.                        | Il va à l’hôtel.                             | Todo     |
+| 440 | He is going to the shops.                        | Il va aux magasins.                          | Todo     |
+| 441 | He is going to the US.                           | Il va aux États-Unis.                        | Todo     |
+| 442 | He is going to the Alpes.                        | Il va aux Alpes.                             | Todo     |
+| 443 | She is going to the restaurant.                  | Elle va au restaurant.                       | Todo     |
+| 444 | She is going to a bar.                           | Elle va au bar.                              | Todo     |
+| 445 | She is going to work.                            | Elle va au travail.                          | Todo     |
+| 446 | She is going to the supermarket.                 | Elle va au supermarché.                      | Todo     |
+| 447 | She is going to the beach.                       | Elle va à la plage.                          | Todo     |
+| 448 | She is going to the swimming pool.               | Elle va à la piscine.                        | Todo     |
+| 449 | She is going to the hotel.                       | Elle va à l’hôtel.                           | Known    |
+| 450 | She is going to the shops.                       | Elle va aux magasins.                        | Todo     |
+| 451 | She is going to the US.                          | Elle va aux États-Unis.                      | Todo     |
+| 452 | She is going to the Alpes.                       | Elle va aux Alpes.                           | Todo     |
+| 453 | We are going to the restaurant.                  | Nous allons au restaurant.                   | Todo     |
+| 454 | We are going to a bar.                           | Nous allons au bar.                          | Todo     |
+| 455 | We are going to work.                            | Nous allons au travail.                      | Todo     |
+| 456 | We are going to the supermarket.                 | Nous allons au supermarché.                  | Todo     |
+| 457 | We are going to the beach.                       | Nous allons à la plage.                      | Todo     |
+| 458 | We are going to the swimming pool.               | Nous allons à la piscine.                    | Todo     |
+| 459 | We are going to the hotel.                       | Nous allons à l’hôtel.                       | Todo     |
+| 460 | We are going to the shops.                       | Nous allons aux magasins.                    | Todo     |
+| 461 | We are going to the US.                          | Nous allons aux États-Unis.                  | Todo     |
+| 462 | We are going to the Alpes.                       | Nous allons aux Alpes.                       | Todo     |
+| 463 | You are (formal) going to the restaurant.        | Vous allez au restaurant.                    | Todo     |
+| 464 | You are (formal) going to a bar.                 | Vous allez au bar.                           | Todo     |
+| 465 | You are (formal) going to work.                  | Vous allez au travail.                       | Todo     |
+| 466 | You are (formal) going to the supermarket.       | Vous allez au supermarché.                   | Todo     |
+| 467 | You are (formal) going to the beach.             | Vous allez à la plage.                       | Todo     |
+| 468 | You are (formal) going to the swimming pool.     | Vous allez à la piscine.                     | Todo     |
+| 469 | You are (formal) going to the hotel.             | Vous allez à l’hôtel.                        | Learning |
+| 470 | You are (formal) going to the shops.             | Vous allez aux magasins.                     | Todo     |
+| 471 | You are (formal) going to the US.                | Vous allez aux États-Unis.                   | Todo     |
+mysql> select * from phrases;
+| 472 | You are (formal) going to the Alpes.             | Vous allez aux Alpes.                        | Todo     |
+| 473 | They are (masculine) going to the restaurant.    | Ils vont au restaurant.                      | Todo     |
+| 474 | They are (masculine) going to a bar.             | Ils vont au bar.                             | Todo     |
+| 475 | They are (masculine) going to work.              | Ils vont au travail.                         | Todo     |
+| 476 | They are (masculine) going to the supermarket.   | Ils vont au supermarché.                     | Learning |
+| 477 | They are (masculine) going to the beach.         | Ils vont à la plage.                         | Todo     |
+| 478 | They are (masculine) going to the swimming pool. | Ils vont à la piscine.                       | Todo     |
+| 479 | They are (masculine) going to the hotel.         | Ils vont à l’hôtel.                          | Todo     |
+| 480 | They are (masculine) going to the shops.         | Ils vont aux magasins.                       | Learning |
+| 481 | They are (masculine) going to the US.            | Ils vont aux États-Unis.                     | Todo     |
+| 482 | They are (masculine) going to the Alpes.         | Ils vont aux Alpes.                          | Todo     |
+| 483 | They are (feminine) going to the restaurant.     | Elles vont au restaurant.                    | Todo     |
+| 484 | They are (feminine) going to a bar.              | Elles vont au bar.                           | Todo     |
+| 485 | They are (feminine) going to work.               | Elles vont au travail.                       | Todo     |
+| 486 | They are (feminine) going to the supermarket.    | Elles vont au supermarché.                   | Todo     |
+| 487 | They are (feminine) going to the beach.          | Elles vont à la plage.                       | Todo     |
+| 488 | They are (feminine) going to the swimming pool.  | Elles vont à la piscine.                     | Todo     |
+| 489 | They are (feminine) going to the hotel.          | Elles vont à l’hôtel.                        | Todo     |
+| 490 | They are (feminine) going to the shops.          | Elles vont aux magasins.                     | Todo     |
+| 491 | They are (feminine) going to the US.             | Elles vont aux États-Unis.                   | Known    |
+| 492 | They are (feminine) going to the Alpes.          | Elles vont aux Alpes.                        | Todo     |
+| 493 | Today                                            | aujourd’hui                                  | Todo     |
+| 494 | This evening                                     | ce soir                                      | Known    |
+| 495 | Tomorrow                                         | demain                                       | Todo     |
+| 496 | After tomorrow                                   | après demain                                 | Todo     |
+| 497 | Everyday                                         | tous les jours                               | Todo     |
+| 498 | twice a week                                     | deux fois par semaine                        | Todo     |
+| 499 | Every week                                       | Toutes les semaines                          | Todo     |
+| 500 | often                                            | souvent                                      | Known    |
+| 501 | twice a month                                    | deux fois par mois                           | Todo     |
+| 502 | Every month                                      | Chaque mois                                  | Todo     |
+| 503 | From time to time                                | de temps en temps                            | Todo     |
+| 504 | Every year                                       | chaque année                                 | Todo     |
+| 505 | French stairs                                    | Escaliers français                           | Todo     |
+| 506 | I wake up                                        | Je me réveille                               | Todo     |
+| 507 | I get up                                         | Je me lever                                  | Known    |
+| 508 | I rest                                           | Je me reposer                                | Todo     |
+| 509 | I fall asleep                                    | Je me endormir                               | Learning |
+| 510 | I sleep                                          | Je me coucher                                | Known    |
+| 511 | I shave                                          | Je me raser                                  | Todo     |
+| 512 | I do my hair                                     | Je me coiffer                                | Known    |
+| 513 | I put my make-up on                              | Je me maquiller                              | Todo     |
+| 514 | I get ready                                      | Je me préparer                               | Todo     |
+| 515 | I dress                                          | Je me habiller                               | Learning |
+| 516 | I brush my teeth                                 | Je me brosser les dents                      | Todo     |
+| 517 | I shower                                         | Je me doucher                                | Known    |
+| 518 | I have fun                                       | Je me amuser                                 | Todo     |
+| 519 | I inform myself                                  | Je me informer                               | Todo     |
++-----+--------------------------------------------------+----------------------------------------------+----------+
